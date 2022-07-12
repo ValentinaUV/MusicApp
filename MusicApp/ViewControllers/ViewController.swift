@@ -60,4 +60,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     cell.textLabel?.text = albums[indexPath.row].name
     return cell
   }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let vc = MusicPlayerViewController(album: albums[indexPath.row])
+    tableView.deselectRow(at: indexPath, animated: true)
+    present(vc, animated: true, completion: nil)
+  }
 }
